@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gopinath - Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        a{
+           text-decoration: none; 
+        }
+
+        body {
+            background-color: #f9fafb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 60px 0 40px;
+            text-align: center;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 0 0 20px 20px;
+            background: linear-gradient(90deg,#e03bf6,#993bf6,#543bf6, #3b82f6, #8b5cf6, #ec4899, #f59e0b , #f50b0b);
+            background-size:100000px  100000px;
+            animation: flowGradient 25s linear infinite ;
+        }
+       @keyframes flowGradient {
+       0%   { background-position: 0% 50%; }
+       50% { background-position: 100% 50%; }
+       100% {background-position: 0% 50%;}
+    }
+        .logo {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #3b82f6;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 25px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .github-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+          height: 180px;           
+          overflow: hidden;        
+          display: block;          
+          position: relative;
+        }
+        
+        .project-image img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;       
+          display: block;
+          object-position: center; 
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .project-year {
+            background: #e0e7ff;
+            color: #4f46e5;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #64748b;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+        .demo-btn {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .code-btn {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .action-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .modal-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .demo-frame {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+
+        @media (max-width: 768px) {
+            .projects {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">GO</div>
+            <h1>Gopinath</h1>
+            <p class="subtitle">A collection of my old mini projects that helped build my development skills</p>
+            <a href="https://github.com/gopinath21052006" class="github-btn" target="_blank">
+                <i class="fab fa-github"></i> View All Projects on GitHub
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="projects">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="display_picture/Screenshot 2025-11-22 182930.png" alt="hand_game" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Hand Game</h3>
+                        <span class="project-year">2023</span>
+                    </div>
+                    <p class="project-description">
+                        An interactive hand sign game built with vanilla JavaScript to practice event handling and DOM manipulation.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="hand_game/hand.html" class="action-btn demo-btn"> <button class="action-btn demo-btn">
+                            <i class="fas fa-play"></i> Live Demo
+                        </button></a>
+                        <a href="https://github.com/gopinath21052006/old_web/hand_game" class="action-btn code-btn"><button class="action-btn code-btn" >
+                            <i class="fas fa-code"></i> View Code
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="display_picture/Screenshot 2025-11-22 183004.png" alt="Click Counter" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Click Counter</h3>
+                        <span class="project-year">2023</span>
+                    </div>
+                    <p class="project-description">
+                        A simple counter that increments with each click, featuring animations and visual feedback.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="onclick\onclick.html" class="action-btn demo-btn"> <button class="action-btn demo-btn">
+                            <i class="fas fa-play"></i> Live Demo
+                        </button></a>
+                        <a href="https://github.com/gopinath21052006/old_web/onclick" class="action-btn code-btn"><button class="action-btn code-btn" >
+                            <i class="fas fa-code"></i> View Code
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="display_picture/Screenshot 2025-11-22 183045.png" alt="Stopwatch" class="project-image">
+                </div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3 class="project-title">Stopwatch</h3>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <p class="project-description">
+                        A fully functional stopwatch with start, stop, lap, and reset functionality.
+                    </p>
+                    <br>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="stopwatch\stopwatch.html" class="action-btn demo-btn"> <button class="action-btn demo-btn">
+                            <i class="fas fa-play"></i> Live Demo
+                        </button></a>
+                        <a href="https://github.com/gopinath21052006/old_web/stopwatch" class="action-btn code-btn"><button class="action-btn code-btn" >
+                            <i class="fas fa-code"></i> View Code
+                        </button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Created by Gopinath • These projects represent my learning journey in web development</p>
+        </div>
+    </footer>
+
+    <!-- Demo Modal -->
+    <div class="modal" id="demoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Project Demo</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <iframe class="demo-frame" id="demoFrame" src="" title="Project Demo"></iframe>
+        </div>
+    </div>
+
+</body>
+</html>
